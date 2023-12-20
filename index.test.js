@@ -1,5 +1,5 @@
 const request = require("supertest");
-const { app, server } = require("./index"); // Replace with the actual path to your app file
+const { app, server } = require("./index");
 
 const testImagePath = "./images/testImage.jpg";
 
