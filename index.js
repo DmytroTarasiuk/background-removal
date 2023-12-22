@@ -1,12 +1,14 @@
 const express = require("express");
 const multer = require("multer");
 const cors = require("cors");
+const { createServer } = require("http");
 const { removeBackground, Config } = require("@imgly/background-removal-node");
 
 const app = express();
-const port = 3000;
 
 app.use(cors());
+
+const server = createServer(app);
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage }).single("image");
@@ -52,8 +54,8 @@ app.post("/remove-background", async (req, res) => {
   });
 });
 
-const server = app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+server.listen(process.env.PORT || 5001, () => {
+  console.log(`Server is running on port ${process.env.PORT || 5001}`);
 });
 
 module.exports = { app, server };
