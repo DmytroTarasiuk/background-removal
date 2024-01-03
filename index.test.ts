@@ -1,5 +1,5 @@
-const request = require("supertest");
-const { app, server } = require("./index");
+import request from "supertest";
+import { app, server } from "./index";
 
 const testImagePath = "./images/testImage.jpg";
 
